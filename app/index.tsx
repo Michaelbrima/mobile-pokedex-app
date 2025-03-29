@@ -73,6 +73,8 @@ export default function Index() {
             <Text style={styles.text}>Hello Expo.</Text>
             <Text style={styles.text}>This is the mobile-pokedex-app.</Text>
             <Text style={styles.text}>{record.name}</Text>
+            <Image source={{ uri: record.sprites.front_default}} style={{ width: 100, height: 100, borderRadius: 100/2, }} />
+            {/* <Text style={styles.text}>{record.moves.move.name}</Text> */}
             {/* <Text style={styles.text}>Index</Text> */}
             {/* <FlatList data={record} renderItem={({pokemon})=> <Pokemon data={pokemon} />}/> */}
            
