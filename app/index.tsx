@@ -67,13 +67,15 @@ export default function Index() {
     // const renderItem: ListRenderItem<Category> = ({ item }) => (
     //     <Item data={item} />
     //  )
+    if (loading) return <Text>Loading...</Text>;
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Hello Expo.</Text>
-            <Text style={styles.text}>This is the mobile-pokedex-app.</Text>
+            {/* <Text style={styles.text}>Hello Expo.</Text>
+            <Text style={styles.text}>This is the mobile-pokedex-app.</Text> */}
+            {/* <Text style={styles.text}>{record.name}</Text> */}
+            <Image source={{ uri: record.sprites.front_default}} style={{ width: 50, height: 50, borderRadius: 100/2, }} />
             <Text style={styles.text}>{record.name}</Text>
-            <Image source={{ uri: record.sprites.front_default}} style={{ width: 100, height: 100, borderRadius: 100/2, }} />
             {/* <Text style={styles.text}>{record.moves.move.name}</Text> */}
             {/* <Text style={styles.text}>Index</Text> */}
             {/* <FlatList data={record} renderItem={({pokemon})=> <Pokemon data={pokemon} />}/> */}
@@ -100,8 +102,24 @@ const styles = StyleSheet.create({
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#25292e",
+            flexDirection: "row",
+            borderColor: "red",
+            borderWidth: 1,
+            margin: 5,
+            padding: 5
     },
     text: {
         color: "white",
+    },
+    card: {
+        marginTop: 55,
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.2,
+        shadowRadius: 1,
+        elevation: 2,
+        margin: 10,
+        padding: 10,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
