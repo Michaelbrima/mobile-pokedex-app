@@ -9,6 +9,12 @@ import axios from 'axios';
 
 export default function Index() {
     const [record, setRecord] = useState<any>({});
+    const [bulbasaur, setBulbasaur] = useState<any>({});
+    const [squirtle, setSquirtle] = useState<any>({});
+    const [pidgey, setPidgey] = useState<any>({});
+    
+
+
     const [loading, setLoading] = useState(true);
     // const [info, setInfo] = useState<any>({});
     // const [loading, setLoading] = useState(true);
@@ -31,6 +37,22 @@ export default function Index() {
     
     useEffect(() => {
         getPData();
+    }, []);
+
+    useEffect(() => {
+        Promise.all([
+            fetch('https://pokeapi.co/api/v2/pokemon/bulbasaur'),
+            fetch('https://pokeapi.co/api/v2/pokemon/squirtle'),
+            fetch('https://pokeapi.co/api/v2/pokemon/pidgey'),
+        ])
+        .then(([resBulbasaur, resSquirtle, resPidgey]) =>
+        Promise.all([resBulbasaur.json(), resSquirtle.json(), resPidgey.json()])
+    )
+    .then(([dataBulbasaur, dataSquirtle, dataPidgey]) => {
+        setBulbasaur(dataBulbasaur);
+        setSquirtle(dataSquirtle);
+        setPidgey(dataPidgey);
+    });
     }, []);
 
     const getPData = async () => {
@@ -82,6 +104,12 @@ export default function Index() {
            
             
             {/* <Text style={styles.text}>{info.data}</Text> */}
+            <Image source={{ uri: bulbasaur.sprites.front_default}} style={{ width: 50, height: 50, borderRadius: 100/2, }} />
+            <Text style={styles.text}>{bulbasaur.name}</Text>
+            <Image source={{ uri: squirtle.sprites.front_default}} style={{ width: 50, height: 50, borderRadius: 100/2, }} />
+            <Text style={styles.text}>{squirtle.name}</Text>
+            <Image source={{ uri: pidgey.sprites.front_default}} style={{ width: 50, height: 50, borderRadius: 100/2, }} />
+            <Text style={styles.text}>{pidgey.name}</Text>
         </View>
     );
     
