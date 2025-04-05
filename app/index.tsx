@@ -175,9 +175,14 @@ export default function Index() {
         <Pressable onPress={() => setExpanded(!expanded)}>
         <Image source={{ uri: bulbasaur.sprites.front_default}} style={{ width: 50, height: 50, borderRadius: 100/2, }} />
         <Text style={styles.text}>{bulbasaur.name}</Text>
+        <Text style={styles.text}>{bulbasaur.name}</Text>
         </Pressable>
-        {expanded && loading}
-        {expanded && <Text style={styles.text}>TYPE</Text>}
+        {expanded && <View style={styles.textWrapper}>
+                        <Text style={styles.text}>{bulbasaur.types[0].type.name}</Text>
+                        <Text style={styles.text}>{bulbasaur.abilities[0].ability.name}</Text>
+                    </View>}
+        
+        {expanded && <Text> </Text>}
         </View>
         <View style={styles.container}>
         <Image source={{ uri: ivysaur.sprites.front_default}} style={{ width: 50, height: 50, borderRadius: 100/2, }} />
@@ -279,5 +284,9 @@ const styles = StyleSheet.create({
         padding: 10,
         justifyContent: 'center',
         alignItems: 'center'
-    }
+    },
+    textWrapper: {
+        flex: 1,
+        
+        }
 });
