@@ -1,5 +1,5 @@
 import React,{ useEffect, useState } from 'react';
-import { Text, View , StyleSheet, FlatList, ListRenderItem, Platform, Image, ScrollView } from 'react-native'; /*'Stylesheet' is a property that allows you to use CSS properties in React Native. */ 
+import { Text, View , StyleSheet, FlatList, ListRenderItem, Platform, Image, ScrollView, Pressable } from 'react-native'; /*'Stylesheet' is a property that allows you to use CSS properties in React Native. */ 
 import axios from 'axios';
 // const pokemonEntry = ({ pokemon }) => (
 //     <View>
@@ -31,6 +31,7 @@ export default function Index() {
 
 
     const [loading, setLoading] = useState(true);
+    const [expanded, setExpanded] = useState(false);
 
 
     useEffect(() => {
@@ -132,6 +133,10 @@ export default function Index() {
     });
     }, []);
 
+//     const bulbasaurType = () => {
+//     if (loading) return <Text>Loading type...</Text>
+//     return (bulbasaur.types.type.name);
+// }
  
     if (loading) return <Text>Loading...</Text>;
 
@@ -167,8 +172,12 @@ export default function Index() {
             <Text style={styles.text}>{pidgey.name}</Text>
         </View>
         <View style={styles.container}>
+        <Pressable onPress={() => setExpanded(!expanded)}>
         <Image source={{ uri: bulbasaur.sprites.front_default}} style={{ width: 50, height: 50, borderRadius: 100/2, }} />
         <Text style={styles.text}>{bulbasaur.name}</Text>
+        </Pressable>
+        {expanded && loading}
+        {expanded && <Text style={styles.text}>TYPE</Text>}
         </View>
         <View style={styles.container}>
         <Image source={{ uri: ivysaur.sprites.front_default}} style={{ width: 50, height: 50, borderRadius: 100/2, }} />
