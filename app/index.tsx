@@ -191,64 +191,56 @@ const renderItem = ({ item }: { item: any }) => {
                                 </View>)}
                         </View>
                     </View>
+
                 <View style={styles.container}>
-
-                    <Image source={{ uri: bulbasaur.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{bulbasaur.name}</Text>
-                    <Image source={{ uri: squirtle.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{squirtle.name}</Text>
-                    <Image source={{ uri: pidgey.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{pidgey.name}</Text>
-                </View>
-                <View style={styles.container}>
-
-                    {/* <Text style={styles.text}>Hello Expo.</Text>
-    <Text style={styles.text}>This is the mobile-pokedex-app.</Text> */}
-                    {/* <Text style={styles.text}>{record.name}</Text> */}
-                    {/* <Image source={{ uri: record.sprites.front_default}} style={{ width: 50, height: 50, borderRadius: 100/2, }} />
-    <Text style={styles.text}>{record.name}</Text> */}
-                    {/* <Text style={styles.text}>{record.moves.move.name}</Text> */}
-                    {/* <Text style={styles.text}>Index</Text> */}
-                    {/* <FlatList data={record} renderItem={({pokemon})=> <Pokemon data={pokemon} />}/> */}
-
-
-                    {/* <Text style={styles.text}>{info.data}</Text> */}
-                    <Image source={{ uri: bulbasaur.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{bulbasaur.name}</Text>
-                    <Image source={{ uri: squirtle.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{squirtle.name}</Text>
-                    <Image source={{ uri: pidgey.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{pidgey.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Pressable onPress={() => setExpanded(!expanded)}>
+                    <Pressable style={styles.container} onPress={() => setExpanded(!expanded)}>
                         <Image source={{ uri: bulbasaur.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                        <Text style={styles.text}>{bulbasaur.name}</Text>
                         <Text style={styles.text}>{bulbasaur.name}</Text>
                     </Pressable>
                     {expanded && <View style={styles.textWrapper}>
-                        <Text style={styles.text}>{bulbasaur.types[0].type.name}</Text>
-                        <Text style={styles.text}>{bulbasaur.abilities[0].ability.name}</Text>
+                        <View style={{ flexDirection: 'row'}}>
+                            <View>
+                                <Text style={styles.text}>Type:</Text>
+                                <Text style={styles.text}>{bulbasaur.types[0].type.name}</Text>
+                            </View>
+                            <View>
+                                <Text style={styles.text}>Ability:</Text>
+                                <Text style={styles.text}>{bulbasaur.abilities[0].ability.name}</Text>
+                            </View>
+                        </View>
                     </View>}
 
                     {expanded && <Text> </Text>}
                     {bulbasaur && expanded &&
-                        // &&
-                        //     && (
-                        //     <FlatList
-                        //       data={bulbasaur.moves}
-                        //       keyExtractor={(item)=> item.move.name}
-                        //       renderItem={renderItem}
-                        //     />
-                        //   )
-                        //  bulbasaur.moves.map((item: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined)=> <Text>{item}</Text>)
-                    <Text>bulbasaur.moves[0].move.name</Text>
+      
+                    <Text>{bulbasaur.types[0].type.name}</Text>
+                    && <Text>{bulbasaur.abilities[0].ability.name}</Text>
+                    && <Text>{bulbasaur.weight}</Text>
                     
                     
                     }
-                        {/* <View>{bulbasaur.moves.map((item: any) => <View>
-                            {<Text>{item}</Text>}
-                        </View>)}</View> */}
+
+                        {expanded &&                         
+                        <View>
+                            {bulbasaur.moves.map((item: { id: React.Key | null | undefined; move: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, i: any) => //used typescript to help infer parameter types from usage for both props
+                                <View key={i}>
+                                    {<Text style={styles.text}>{item.move.name}</Text>}
+                                </View>)}
+                        </View>}
+                                                {expanded &&                         
+                        <View>
+                            {/* {bulbasaur.moves.map((item: { id: React.Key | null | undefined; move: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, i: any) => //used typescript to help infer parameter types from usage for both props
+                                    bulbasaur.moves.version_group_details.map((mItem: { id: React.Key | null | undefined; level_learned_at: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, i: any) =>
+                                                                    
+                                <View key={i}>
+                                    {<Text >{item.moves.version_group_details.level_learned_at}</Text>}
+                                </View>
+                                
+                                ))
+                                } */}
+
+                        </View>}
+
                 </View>
                 <View style={styles.container}>
                     <Image source={{ uri: ivysaur.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
@@ -321,8 +313,7 @@ const renderItem = ({ item }: { item: any }) => {
             </ScrollView>
 
         </SafeAreaView>
-//         <FlatList data={data} keyExtractor={(item) => item.id} renderItem={renderItem} />
-//    </>
+
 );
     
 };
