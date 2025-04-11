@@ -29,6 +29,7 @@ export default function Index() {
     const [pidgeotto, setPidgeotto] = useState<any>({});
     const [pidgeot, setPidgeot] = useState<any>({});
     
+    const [locationBulbasaur, setLocationBulbasaur] = useState<any>({});
 
 
     const [loading, setLoading] = useState(true);
@@ -55,6 +56,7 @@ export default function Index() {
             fetch('https://pokeapi.co/api/v2/pokemon/pidgey'),
             fetch('https://pokeapi.co/api/v2/pokemon/pidgeotto'),
             fetch('https://pokeapi.co/api/v2/pokemon/pidgeot'),
+            fetch('https://pokeapi.co/api/v2/pokemon/1/encounters')
         ])
         .then(([resBulbasaur, 
             resIvysaur, 
@@ -73,7 +75,8 @@ export default function Index() {
             resBeedrill, 
             resPidgey, 
             resPidgeotto, 
-            resPidgeot
+            resPidgeot,
+            resLocationBulbasaur
         ]) =>
         Promise.all([resBulbasaur.json(), 
             resIvysaur.json(), 
@@ -92,7 +95,8 @@ export default function Index() {
             resBeedrill.json(), 
             resPidgey.json(), 
             resPidgeotto.json(), 
-            resPidgeot.json()])
+            resPidgeot.json(),
+            resLocationBulbasaur.json()])
     )
     .then(([dataBulbasaur, 
         dataIvysaur, 
@@ -111,7 +115,8 @@ export default function Index() {
         dataBeedrill, 
         dataPidgey, 
         dataPidgeotto, 
-        dataPidgeot]) => {
+        dataPidgeot,
+        dataLocationBulbasaur]) => {
         setBulbasaur(dataBulbasaur);
         setIvysaur(dataIvysaur);
         setVenusaur(dataVenusaur);
@@ -130,9 +135,19 @@ export default function Index() {
         setPidgey(dataPidgey);
         setPidgeotto(dataPidgeotto);
         setPidgeot(dataPidgeot);
+        setLocationBulbasaur(dataLocationBulbasaur);
         setLoading(false);
     });
-    }, []);
+    }, []);    
+    
+    // useEffect(()=>{
+    //     Promise.all([
+    //         fetch(`https://pokeapi.co/api/v2/pokemon/1/encounters`)
+    //     ]).then(([resLocationBulbasaur
+
+    //     ]))=>
+    //         Promise.all(({resLocationBulbasaur.json()}))
+    // }, [])
 
     const data = [
         bulbasaur,
@@ -155,6 +170,8 @@ export default function Index() {
         pidgeot
     ];
 
+
+
 //     const bulbasaurType = () => {
 //     if (loading) return <Text>Loading type...</Text>
 //     return (bulbasaur.types.type.name);
@@ -176,7 +193,28 @@ const renderItem = ({ item }: { item: any }) => {
     //the app will represent each list item via a Text component
     return <Text> {item.title}</Text>;
   };
+
+  let flatArray = [].concat.apply([], bulbasaur.moves);
  
+  var vArray: React.JSX.Element[] = [];
+// const returnLevel = () => { 
+// var iLength;
+// var jLength; 
+//     for(let i = 0; i < bulbasaur.moves.length; i++){
+//     for(let j = 0; j < bulbasaur.moves.version_group_details.length; j++){
+//     vArray.push(
+        
+        
+//             <View key={[i][j]}>
+//                 <Text>bulbasaur.moves[i].version_group_details[j].level_learned_at</Text>
+//             </View>
+        
+
+//     )
+
+//   }}
+// }
+
     if (loading) return <Text>Loading...</Text>;
 
     return (
@@ -216,9 +254,23 @@ const renderItem = ({ item }: { item: any }) => {
                     <Text>{bulbasaur.types[0].type.name}</Text>
                     && <Text>{bulbasaur.abilities[0].ability.name}</Text>
                     && <Text>{bulbasaur.weight}</Text>
-                    
+                    && <Text>{locationBulbasaur[0].location_area.name}</Text>
+                    && <Text>{bulbasaur.moves.map((item: { version_group_details: { level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }[]; })=> 
+                    item.version_group_details.map((attr: { level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }, index: React.Key | null | undefined)=>(
+                        <View key={index}>
+                            <Text>{attr.level_learned_at}</Text>
+                        </View>
+                    )))}</Text>
+                    // && <View>{bulbasaur.moves.map((moves: any) => {
+                    //     bulbasaur.moves.version_group_details.map((version_group_details: { id: React.Key | null | undefined; level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }) => (
+                    //        <View key={version_group_details.id}>
+                    //            <Text>{version_group_details.level_learned_at}</Text>
+                    //        </View>
+                    //     ))
+                    //  })}</View>
                     
                     }
+                    
 
                         {expanded &&                         
                         <View>
@@ -226,7 +278,20 @@ const renderItem = ({ item }: { item: any }) => {
                                 <View key={i}>
                                     {<Text style={styles.text}>{item.move.name}</Text>}
                                 </View>)}
-                        </View>}
+                        </View>
+                        // &&
+                        // <View>{bulbasaur.moves.map(mItem, j)=>
+                        // {bulbasaur.moves.version_group_details.map((vItem: { version_group_details: { level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, k: any)=>
+                        // <View key={k}>{<View><Text>{vItem.version_group_details.level_learned_at}</Text></View>}</View>
+                        // )}
+                        // }</View>
+                        &&
+                        <View>{flatArray.map((item: { id: React.Key | null | undefined; move: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, i: any) => //used typescript to help infer parameter types from usage for both props
+                        <View key={i}>
+                            {<Text >{item.move.name}</Text>}
+                        </View>)}
+                </View>
+                        }
                                                 {expanded &&                         
                         <View>
                             {/* {bulbasaur.moves.map((item: { id: React.Key | null | undefined; move: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, i: any) => //used typescript to help infer parameter types from usage for both props
