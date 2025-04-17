@@ -34,6 +34,7 @@ export default function Index() {
 
     const [loading, setLoading] = useState(true);
     const [expanded, setExpanded] = useState(false);
+    
 
 
     useEffect(() => {
@@ -257,79 +258,46 @@ const renderItem = ({ item }: { item: any }) => {
                     <View>
                      <Text style={styles.text}>{bulbasaur.abilities[0].ability.name}</Text>
                      </View>
-                     <View>
-                     <Text style={styles.text}>{bulbasaur.weight}</Text>
-                     </View>
-                     <View>
-                     <Text style={styles.text}>{locationBulbasaur[0].location_area.name}</Text>
-                     </View>
+
                     <View style={{ flexDirection: 'column' }}>
                         <Text style={{ flexDirection: 'row' }}>{bulbasaur.moves.map((item: {
                             [x: string]: any; version_group_details: { level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }[]; 
 }, id: any) =>
                             <View key={id}><Text style={styles.text}>{item.move.name}</Text>{item.version_group_details.map((attr: {
-                                [x: string]: any; level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; 
-}, index: React.Key | null | undefined) => (
+                                [x: string]: any; level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined;
+                            }, index: React.Key | null | undefined) => (
                                 <View style={{ flexDirection: 'row' }} key={index}>
                                     <Text style={styles.text}>Level: </Text>
-                                    <Text style={styles.text}>{attr.level_learned_at}</Text>                                    
+                                    <Text style={styles.text}>{attr.level_learned_at}</Text>
                                     <Text style={styles.text}> ({attr.move_learn_method.name}) </Text>
                                     <Text style={styles.text}> ({attr.version_group.name}) </Text>
 
                                 </View>
                             ))}</View>)}</Text>
-                    </View>
-                     {/* <View>{bulbasaur.moves.map((moves: any) => {
-                        bulbasaur.moves.version_group_details.map((version_group_details: { id: React.Key | null | undefined; level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }) => (
-                           <View key={version_group_details.id}>
-                               <Text>{version_group_details.level_learned_at}</Text>
-                           </View>
-                        ))
-                     })}</View> */}
-                                             {/* <View>
-                            {bulbasaur.moves.map((item: { id: React.Key | null | undefined; move: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, i: any) => //used typescript to help infer parameter types from usage for both props
-                                <View key={i}>
-                                    {<Text style={styles.text}>{item.move.name}</Text>}
-                                </View>)}
-                        </View> */}
-                    </View>
+                            </View>
+
+<View style={{ flexDirection: 'column' }}>
+                                <Text style={{ flexDirection: 'row' }}>{locationBulbasaur.map((one: any, k: React.Key | null | undefined) =>
+                                    <View key={k}>{one.version_details.map((two: {
+                                        [x: string]: any; version: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; max_chance: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; 
+}, l: React.Key | null | undefined) =>
+                                        <View key={l} style={{ flexDirection: 'row' }}>
+                                            <Text style={{ margin: 5, color: 'white' }}>{one.location_area.name}</Text>
+                                            <Text style={{ margin: 5, color: 'white' }}>{two.version.name}</Text>
+                                            <Text style={{ margin: 5, color: 'white' }}>{two.max_chance}</Text>
+                                            {two.encounter_details.map((three: { max_level: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; method: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, m: React.Key | null | undefined)=>
+                                            <View key={m}>
+                                                <Text style={{ margin: 5, color: 'white' }}>Max Level:</Text>
+                                                <Text style={{ margin: 5, color: 'white' }}>{three.max_level}</Text>
+                                                <Text style={{ margin: 5, color: 'white' }}>Method to Obtain:</Text>
+                                                <Text style={{ margin: 5, color: 'white' }}>{three.method.name}</Text>
+                                                </View>)}</View>)}</View>)}</Text></View>
+                            </View>
                     }
                     
 
-                        {expanded 
-                        // &&                         
-                        // <View>
-                        //     {bulbasaur.moves.map((item: { id: React.Key | null | undefined; move: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, i: any) => //used typescript to help infer parameter types from usage for both props
-                        //         <View key={i}>
-                        //             {<Text style={styles.text}>{item.move.name}</Text>}
-                        //         </View>)}
-                        // </View>
-                        // &&
-                        // <View>{bulbasaur.moves.map(mItem, j)=>
-                        // {bulbasaur.moves.version_group_details.map((vItem: { version_group_details: { level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, k: any)=>
-                        // <View key={k}>{<View><Text>{vItem.version_group_details.level_learned_at}</Text></View>}</View>
-                        // )}
-                        // }</View>
-                //         &&
-                //         <View>{flatArray.map((item: { id: React.Key | null | undefined; move: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, i: any) => //used typescript to help infer parameter types from usage for both props
-                //         <View key={i}>
-                //             {<Text >{item.move.name}</Text>}
-                //         </View>)}
-                // </View>
-                        }
-                                                {expanded &&                         
-                        <View>
-                            {/* {bulbasaur.moves.map((item: { id: React.Key | null | undefined; move: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, i: any) => //used typescript to help infer parameter types from usage for both props
-                                    bulbasaur.moves.version_group_details.map((mItem: { id: React.Key | null | undefined; level_learned_at: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, i: any) =>
-                                                                    
-                                <View key={i}>
-                                    {<Text >{item.moves.version_group_details.level_learned_at}</Text>}
-                                </View>
-                                
-                                ))
-                                } */}
 
-                        </View>}
+
 
                 </View>
                 <View style={styles.container}>
@@ -400,7 +368,13 @@ const renderItem = ({ item }: { item: any }) => {
                     <Image source={{ uri: pidgeot.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
                     <Text style={styles.text}>{pidgeot.name}</Text>
                 </View>
+                <View>
+                    <Text>No Copyright Infringement is Intended. Pokemon belongs to
+                        Gamefreak, Nintendo, and The Pokemon Company, respectively. &copy</Text>
+                </View>
             </ScrollView>
+
+            
 
         </SafeAreaView>
 
