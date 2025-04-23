@@ -94,7 +94,6 @@ export default function Index() {
             fetch('https://pokeapi.co/api/v2/pokemon/nidoking'),
             fetch('https://pokeapi.co/api/v2/pokemon/clefairy'),
             fetch('https://pokeapi.co/api/v2/pokemon/clefable'),
-            fetch('https://pokeapi.co/api/v2/pokemon/clefable'),
             fetch('https://pokeapi.co/api/v2/pokemon/1/encounters')
         ])
         .then(([resBulbasaur, 
@@ -436,8 +435,9 @@ const renderItem = ({ item }: { item: any }) => {
                                 <Text style={{ margin: 10, color: 'gray' }}>Location:</Text>
                                 <Text style={{ margin: 10, color: 'gray' }}>Version:</Text>
                                 </View>
-                            {arrayAreas}
-
+                            {/* <View>{arrayAreas}</View> */}
+                            <View>{locationBulbasaur.map((place: { location_area: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, l: string | undefined)=>
+                            <Text key={l}>{place.location_area.name}</Text>)}</View>
                             
                             </View>
 
