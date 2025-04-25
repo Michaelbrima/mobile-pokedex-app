@@ -8,7 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 //     </View>
 // )
 
-export default function Index() {
+export default function Index(this: any) {
     // const [record, setRecord] = useState<any>({});
     const [bulbasaur, setBulbasaur] = useState<any>({});
     const [ivysaur, setIvysaur] = useState<any>({});
@@ -46,6 +46,32 @@ export default function Index() {
     const [nidoking, setNidoking] = useState<any>({});
     const [clefairy, setClefairy] = useState<any>({});
     const [clefable, setClefable] = useState<any>({});
+    const [vulpix, setVulpix] = useState<any>({});
+    const [ninetales, setNinetales] = useState<any>({});
+    const [jigglypuff, setJigglypuff] = useState<any>({});
+    const [wigglytuff, setWigglytuff] = useState<any>({});
+    const [zubat, setZubat] = useState<any>({});
+    const [golbat, setGolbat] = useState<any>({});
+    const [oddish, setOddish] = useState<any>({});
+    const [gloom, setGloom] = useState<any>({});
+    const [vileplume, setVileplume] = useState<any>({});
+    const [paras, setParas] = useState<any>({});
+    const [parasect, setParasect] = useState<any>({});
+    const [venonat, setVenonat] = useState<any>({});
+    const [venomoth, setVenomoth] = useState<any>({});
+    const [diglett, setDiglett] = useState<any>({});
+    const [dugtrio, setDugtrio] = useState<any>({});
+    const [meowth, setMeowth] = useState<any>({});
+    const [persian, setPersian] = useState<any>({});
+    const [psyduck, setPsyduck] = useState<any>({});
+    const [golduck, setGolduck] = useState<any>({});
+    const [mankey, setMankey] = useState<any>({});
+    const [primeape, setPrimeape] = useState<any>({});
+    const [growlithe, setGrowlithe] = useState<any>({});
+    const [arcanine, setArcanine] = useState<any>({});
+    const [poliwag, setPoliwag] = useState<any>({});
+    const [poliwhirl, setPoliwhirl] = useState<any>({});
+    const [poliwrath, setPoliwrath] = useState<any>({});
 
     const [locationBulbasaur, setLocationBulbasaur] = useState<any>({});
     const [areaBulbasaur, setAreaBulbasaur] = useState<any>([]);
@@ -94,6 +120,32 @@ export default function Index() {
             fetch('https://pokeapi.co/api/v2/pokemon/nidoking'),
             fetch('https://pokeapi.co/api/v2/pokemon/clefairy'),
             fetch('https://pokeapi.co/api/v2/pokemon/clefable'),
+            fetch('https://pokeapi.co/api/v2/pokemon/vulpix'),
+            fetch('https://pokeapi.co/api/v2/pokemon/ninetales'),
+            fetch('https://pokeapi.co/api/v2/pokemon/jigglypuff'),
+            fetch('https://pokeapi.co/api/v2/pokemon/wigglytuff'),
+            fetch('https://pokeapi.co/api/v2/pokemon/zubat'),
+            fetch('https://pokeapi.co/api/v2/pokemon/golbat'),
+            fetch('https://pokeapi.co/api/v2/pokemon/oddish'),
+            fetch('https://pokeapi.co/api/v2/pokemon/gloom'),
+            fetch('https://pokeapi.co/api/v2/pokemon/vileplume'),
+            fetch('https://pokeapi.co/api/v2/pokemon/paras'),
+            fetch('https://pokeapi.co/api/v2/pokemon/parasect'),
+            fetch('https://pokeapi.co/api/v2/pokemon/venonat'),
+            fetch('https://pokeapi.co/api/v2/pokemon/venomoth'),
+            fetch('https://pokeapi.co/api/v2/pokemon/diglett'),
+            fetch('https://pokeapi.co/api/v2/pokemon/dugtrio'),
+            fetch('https://pokeapi.co/api/v2/pokemon/meowth'),
+            fetch('https://pokeapi.co/api/v2/pokemon/persian'),
+            fetch('https://pokeapi.co/api/v2/pokemon/psyduck'),
+            fetch('https://pokeapi.co/api/v2/pokemon/golduck'),
+            fetch('https://pokeapi.co/api/v2/pokemon/mankey'),
+            fetch('https://pokeapi.co/api/v2/pokemon/primeape'),
+            fetch('https://pokeapi.co/api/v2/pokemon/growlithe'),
+            fetch('https://pokeapi.co/api/v2/pokemon/arcanine'),
+            fetch('https://pokeapi.co/api/v2/pokemon/poliwag'),
+            fetch('https://pokeapi.co/api/v2/pokemon/poliwhirl'),
+            fetch('https://pokeapi.co/api/v2/pokemon/poliwrath'),
             fetch('https://pokeapi.co/api/v2/pokemon/1/encounters')
         ])
         .then(([resBulbasaur, 
@@ -132,6 +184,32 @@ export default function Index() {
             resNidoking,
             resClefairy,
             resClefable,
+            resVulpix,
+            resNinetales,
+            resJigglypuff,
+            resWigglytuff,
+            resZubat,
+            resGolbat,
+            resOddish,
+            resGloom,
+            resVileplume,
+            resParas,
+            resParasect,
+            resVenonat,
+            resVenomoth,
+            resDiglett,
+            resDugtrio,
+            resMeowth,
+            resPersian,
+            resPsyduck,
+            resGolduck,
+            resMankey,
+            resPrimeape,
+            resGrowlithe,
+            resArcanine,
+            resPoliwag,
+            resPoliwhirl,
+            resPoliwrath,
             resLocationBulbasaur
         ]) =>
         Promise.all([resBulbasaur.json(), 
@@ -170,6 +248,32 @@ export default function Index() {
             resNidoking.json(),
             resClefairy.json(),
             resClefable.json(),
+            resVulpix.json(),
+            resNinetales.json(),
+            resJigglypuff.json(),
+            resWigglytuff.json(),
+            resZubat.json(),
+            resGolbat.json(),
+            resOddish.json(),
+            resGloom.json(),
+            resVileplume.json(),
+            resParas.json(),
+            resParasect.json(),
+            resVenonat.json(),
+            resVenomoth.json(),
+            resDiglett.json(),
+            resDugtrio.json(),
+            resMeowth.json(),
+            resPersian.json(),
+            resPsyduck.json(),
+            resGolduck.json(),
+            resMankey.json(),
+            resPrimeape.json(),
+            resGrowlithe.json(),
+            resArcanine.json(),
+            resPoliwag.json(),
+            resPoliwhirl.json(),
+            resPoliwrath.json(),
             resLocationBulbasaur.json()])
     )
     .then(([dataBulbasaur, 
@@ -208,6 +312,32 @@ export default function Index() {
         dataNidoking,
         dataClefairy,
         dataClefable,
+        dataVulpix,
+        dataNinetales,
+        dataJigglypuff,
+        dataWigglytuff,
+        dataZubat,
+        dataGolbat,
+        dataOddish,
+        dataGloom,
+        dataVileplume,
+        dataParas,
+        dataParasect,
+        dataVenonat,
+        dataVenomoth,
+        dataDiglett,
+        dataDugtrio,
+        dataMeowth,
+        dataPersian,
+        dataPsyduck,
+        dataGolduck,
+        dataMankey,
+        dataPrimeape,
+        dataGrowlithe,
+        dataArcanine,
+        dataPoliwag,
+        dataPoliwhirl,
+        dataPoliwrath,
         dataLocationBulbasaur]) => {
         setBulbasaur(dataBulbasaur);
         setIvysaur(dataIvysaur);
@@ -245,6 +375,32 @@ export default function Index() {
         setNidoking(dataNidoking);
         setClefairy(dataClefairy);
         setClefable(dataClefable);
+        setVulpix(dataVulpix);
+        setNinetales(dataNinetales);
+        setJigglypuff(dataJigglypuff);
+        setWigglytuff(dataWigglytuff);
+        setZubat(dataZubat);
+        setGolbat(dataGolbat);
+        setOddish(dataOddish);
+        setGloom(dataGloom);
+        setVileplume(dataVileplume);
+        setParas(dataParas);
+        setParasect(dataParasect);
+        setVenonat(dataVenonat);
+        setVenomoth(dataVenomoth);
+        setDiglett(dataDiglett);
+        setDugtrio(dataDugtrio);
+        setMeowth(dataMeowth);
+        setPersian(dataPersian);
+        setPsyduck(dataPsyduck);
+        setGolduck(dataGolduck);
+        setMankey(dataMankey);
+        setPrimeape(dataPrimeape);
+        setGrowlithe(dataGrowlithe);
+        setArcanine(dataArcanine);
+        setPoliwag(dataPoliwag);
+        setPoliwhirl(dataPoliwhirl);
+        setPoliwrath(dataPoliwrath);
         setLocationBulbasaur(dataLocationBulbasaur);
         setLoading(false);
     });
@@ -292,7 +448,51 @@ export default function Index() {
         beedrill,
         pidgey,
         pidgeotto,
-        pidgeot
+        pidgeot,
+        rattata,
+        raticate,
+        spearow,
+        fearow,
+        ekans,
+        arbok,
+        pikachu,
+        raichu,
+        sandshrew,
+        sandslash,
+        nidoranf,
+        nidorina,
+        nidoqueen,
+        nidoranm,
+        nidorino,
+        nidoking,
+        clefairy,
+        clefable,
+        vulpix,
+        ninetales,
+        jigglypuff,
+        wigglytuff,
+        zubat,
+        golbat,
+        oddish,
+        gloom,
+        vileplume,
+        paras,
+        parasect,
+        venonat,
+        venomoth,
+        diglett,
+        dugtrio,
+        meowth,
+        persian,
+        psyduck,
+        golduck,
+        mankey,
+        primeape,
+        growlithe,
+        arcanine,
+        poliwag,
+        poliwhirl,
+        poliwrath
     ];
 
 
@@ -386,8 +586,9 @@ const renderItem = ({ item }: { item: any }) => {
                     <View style={{ flexDirection: 'column'}}> 
 
                                 <View style={{ flexDirection: 'column', backgroundColor: 'red' }}>
-                                    <View>{bulbasaur.types.map((type: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }, t: React.Key | null | undefined) =>
-                                    <Text key={t} style={{ color: 'white' }}>{type.name}</Text>
+                                    <Text style={{ color: 'white' }}>Types:</Text>
+                                    <View>{bulbasaur.types.map((type: { type: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, t: React.Key | null | undefined) =>
+                                    <Text key={t} style={{ color: 'white' }}>{type.type.name}</Text>
                                 )}</View>
 
                                 
@@ -432,12 +633,19 @@ const renderItem = ({ item }: { item: any }) => {
 
                             <View style={{ flexDirection: 'column', backgroundColor: "yellow" }}>
                                 <View style={{ flexDirection: 'row' }}>
-                                <Text style={{ margin: 10, color: 'gray' }}>Location:</Text>
-                                <Text style={{ margin: 10, color: 'gray' }}>Version:</Text>
+                                {/* <Text style={{ margin: 10, color: 'gray' }}>Location:</Text>
+                                <Text style={{ margin: 10, color: 'gray' }}>Version:</Text> */}
                                 </View>
                             {/* <View>{arrayAreas}</View> */}
-                            <View>{locationBulbasaur.map((place: { location_area: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, l: string | undefined)=>
-                            <Text key={l}>{place.location_area.name}</Text>)}</View>
+                                <View>
+                                    <Text>Locations found in the games:</Text>
+                                    {locationBulbasaur.map((place: { location_area: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; version_details: any[]; }, l: React.Key | null | undefined) =>
+                                        <View style={{ flexDirection: 'row' }}>
+                                            <Text key={l}>{place.location_area.name}</Text>
+                                            <Text>{place.version_details.map((version, v) =>
+                                                <Text key={v}> ({version.version.name})</Text>)}</Text>
+                                        </View>)}
+                                </View>
                             
                             </View>
 
@@ -593,9 +801,19 @@ const renderItem = ({ item }: { item: any }) => {
                     <Image source={{ uri: clefable.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
                     <Text style={styles.text}>{clefable.name}</Text>
                 </View>
-                <Text>      {data.map((item, id) => (
-          <View key={item.id}><Text>{item.name}</Text></View>
-        ))}</Text>                  
+                {/* <Text>      {data.map((item, id) => (
+          <View key={item.id}>
+            <Text>{item.name}</Text>
+            </View>
+        ))}</Text> */}
+          {data.map((item: any, index: any) => {
+        return (
+            <View key={index} style={{height: 50, width: 50, backgroundColor: 'orange', marginBottom: 10}}>
+                <Image  source={{ uri: item.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
+            <Text>{item.name}</Text>
+            </View> 
+        )
+  })}                  
                 <View>
                     <Text>No Copyright Infringement is Intended. Pokemon belongs to
                         Gamefreak, Nintendo, and The Pokemon Company, respectively. Pokémon and Pokémon character names are trademarks of Nintendo.&copy</Text>
