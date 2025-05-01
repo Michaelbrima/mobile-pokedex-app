@@ -115,6 +115,52 @@ export default function Index(this: any) {
     const [exeggutor, setExeggutor] = useState<any>({});
     const [cubone, setCubone] = useState<any>({});
     const [marowak, setMarowak] = useState<any>({});
+    const [hitmonlee, setHitmonlee] = useState<any>({});
+    const [hitmonchan, setHitmonchan] = useState<any>({});
+    const [lickitung, setLickitung] = useState<any>({});
+    const [koffing, setKoffing] = useState<any>({});
+    const [weezing, setWeezing] = useState<any>({});
+    const [rhyhorn, setRhyhorn] = useState<any>({});
+    const [rhydon, setRhydon] = useState<any>({});
+    const [chansey, setChansey] = useState<any>({});
+    const [tangela, setTangela] = useState<any>({});
+    const [kangaskhan, setKangaskhan] = useState<any>({});
+    const [horsea, setHorsea] = useState<any>({});
+    const [seadra, setSeadra] = useState<any>({});
+    const [goldeen, setGoldeen] = useState<any>({});
+    const [seaking, setSeaking] = useState<any>({});
+    const [staryu, setStaryu] = useState<any>({});
+    const [starmie, setStarmie] = useState<any>({});
+    const [mrmime, setMrmime] = useState<any>({});
+    const [scyther, setScyther] = useState<any>({});
+    const [jynx, setJynx] = useState<any>({});
+    const [electabuzz, setElectabuzz] = useState<any>({});
+    const [magmar, setMagmar] = useState<any>({});
+    const [pinsir, setPinsir] = useState<any>({});
+    const [tauros, setTauros] = useState<any>({});
+    const [magikarp, setMagikarp] = useState<any>({});
+    const [gyarados, setGyarados] = useState<any>({});
+    const [lapras, setLapras] = useState<any>({});
+    const [ditto, setDitto] = useState<any>({});
+    const [eevee, setEevee] = useState<any>({});
+    const [vaporeon, setVaporeon] = useState<any>({});
+    const [jolteon, setJolteon] = useState<any>({});
+    const [flareon, setFlareon] = useState<any>({});
+    const [porygon, setPorygon] = useState<any>({});
+    const [omanyte, setOmanyte] = useState<any>({});
+    const [omastar, setOmastar] = useState<any>({});
+    const [kabuto, setKabuto] = useState<any>({});
+    const [kabutops, setKabutops] = useState<any>({});
+    const [aerodactyl, setAerodactyl] = useState<any>({});
+    const [snorlax, setSnorlax] = useState<any>({});
+    const [articuno, setArticuno] = useState<any>({});
+    const [zapdos, setZapdos] = useState<any>({});
+    const [moltres, setMoltres] = useState<any>({});
+    const [dratini, setDratini] = useState<any>({});
+    const [dragonair, setDragonair] = useState<any>({});
+    const [dragonite, setDragonite] = useState<any>({});
+    const [mewtwo, setMewtwo] = useState<any>({});
+    const [mew, setMew] = useState<any>({});
 
 
     const [locationBulbasaur, setLocationBulbasaur] = useState<any>({});
@@ -233,6 +279,52 @@ export default function Index(this: any) {
             fetch('https://pokeapi.co/api/v2/pokemon/exeggutor'),
             fetch('https://pokeapi.co/api/v2/pokemon/cubone'),
             fetch('https://pokeapi.co/api/v2/pokemon/marowak'),
+            fetch('https://pokeapi.co/api/v2/pokemon/hitmonlee'),
+            fetch('https://pokeapi.co/api/v2/pokemon/hitmonchan'),
+            fetch('https://pokeapi.co/api/v2/pokemon/lickitung'),
+            fetch('https://pokeapi.co/api/v2/pokemon/koffing'),
+            fetch('https://pokeapi.co/api/v2/pokemon/weezing'),
+            fetch('https://pokeapi.co/api/v2/pokemon/rhyhorn'),
+            fetch('https://pokeapi.co/api/v2/pokemon/rhydon'),
+            fetch('https://pokeapi.co/api/v2/pokemon/chansey'),
+            fetch('https://pokeapi.co/api/v2/pokemon/tangela'),
+            fetch('https://pokeapi.co/api/v2/pokemon/kangaskhan'),
+            fetch('https://pokeapi.co/api/v2/pokemon/horsea'),
+            fetch('https://pokeapi.co/api/v2/pokemon/seadra'),
+            fetch('https://pokeapi.co/api/v2/pokemon/goldeen'),
+            fetch('https://pokeapi.co/api/v2/pokemon/seaking'),
+            fetch('https://pokeapi.co/api/v2/pokemon/staryu'),
+            fetch('https://pokeapi.co/api/v2/pokemon/starmie'),
+            fetch('https://pokeapi.co/api/v2/pokemon/mr-mime'),
+            fetch('https://pokeapi.co/api/v2/pokemon/scyther'),
+            fetch('https://pokeapi.co/api/v2/pokemon/jynx'),
+            fetch('https://pokeapi.co/api/v2/pokemon/electabuzz'),
+            fetch('https://pokeapi.co/api/v2/pokemon/magmar'),
+            fetch('https://pokeapi.co/api/v2/pokemon/pinsir'),
+            fetch('https://pokeapi.co/api/v2/pokemon/tauros'),
+            fetch('https://pokeapi.co/api/v2/pokemon/magikarp'),
+            fetch('https://pokeapi.co/api/v2/pokemon/gyarados'),
+            fetch('https://pokeapi.co/api/v2/pokemon/lapras'),
+            fetch('https://pokeapi.co/api/v2/pokemon/ditto'),
+            fetch('https://pokeapi.co/api/v2/pokemon/eevee'),
+            fetch('https://pokeapi.co/api/v2/pokemon/vaporeon'),
+            fetch('https://pokeapi.co/api/v2/pokemon/jolteon'),
+            fetch('https://pokeapi.co/api/v2/pokemon/flareon'),
+            fetch('https://pokeapi.co/api/v2/pokemon/porygon'),
+            fetch('https://pokeapi.co/api/v2/pokemon/omanyte'),
+            fetch('https://pokeapi.co/api/v2/pokemon/omastar'),
+            fetch('https://pokeapi.co/api/v2/pokemon/kabuto'),
+            fetch('https://pokeapi.co/api/v2/pokemon/kabutops'),
+            fetch('https://pokeapi.co/api/v2/pokemon/aerodactyl'),
+            fetch('https://pokeapi.co/api/v2/pokemon/snorlax'),
+            fetch('https://pokeapi.co/api/v2/pokemon/articuno'),
+            fetch('https://pokeapi.co/api/v2/pokemon/zapdos'),
+            fetch('https://pokeapi.co/api/v2/pokemon/moltres'),
+            fetch('https://pokeapi.co/api/v2/pokemon/dratini'),
+            fetch('https://pokeapi.co/api/v2/pokemon/dragonair'),
+            fetch('https://pokeapi.co/api/v2/pokemon/dragonite'),
+            fetch('https://pokeapi.co/api/v2/pokemon/mewtwo'),
+            fetch('https://pokeapi.co/api/v2/pokemon/mew'),
             fetch('https://pokeapi.co/api/v2/pokemon/1/encounters')
         ])
         .then(([resBulbasaur, 
@@ -340,6 +432,52 @@ export default function Index(this: any) {
             resExeggutor,
             resCubone,
             resMarowak,
+            resHitmonlee,
+            resHitmonchan,
+            resLickitung,
+            resKoffing,
+            resWeezing,
+            resRhyhorn,
+            resRhydon,
+            resChansey,
+            resTangela,
+            resKangaskhan,
+            resHorsea,
+            resSeadra,
+            resGoldeen,
+            resSeaking,
+            resStaryu,
+            resStarmie,
+            resMrmime,
+            resScyther,
+            resJynx,
+            resElectabuzz,
+            resMagmar,
+            resPinsir,
+            resTauros,
+            resMagikarp,
+            resGyarados,
+            resLapras,
+            resDitto,
+            resEevee,
+            resVaporeon,
+            resJolteon,
+            resFlareon,
+            resPorygon,
+            resOmanyte,
+            resOmastar,
+            resKabuto,
+            resKabutops,
+            resAerodactyl,
+            resSnorlax,
+            resArticuno,
+            resZapdos,
+            resMoltres,
+            resDratini,
+            resDragonair,
+            resDragonite,
+            resMewtwo,
+            resMew,
             resLocationBulbasaur
         ]) =>
         Promise.all([resBulbasaur.json(), 
@@ -447,6 +585,52 @@ export default function Index(this: any) {
             resExeggutor.json(),
             resCubone.json(),
             resMarowak.json(),
+            resHitmonlee.json(),
+            resHitmonchan.json(),
+            resLickitung.json(),
+            resKoffing.json(),
+            resWeezing.json(),
+            resRhyhorn.json(),
+            resRhydon.json(),
+            resChansey.json(),
+            resTangela.json(),
+            resKangaskhan.json(),
+            resHorsea.json(),
+            resSeadra.json(),
+            resGoldeen.json(),
+            resSeaking.json(),
+            resStaryu.json(),
+            resStarmie.json(),
+            resMrmime.json(),
+            resScyther.json(),
+            resJynx.json(),
+            resElectabuzz.json(),
+            resMagmar.json(),
+            resPinsir.json(),
+            resTauros.json(),
+            resMagikarp.json(),
+            resGyarados.json(),
+            resLapras.json(),
+            resDitto.json(),
+            resEevee.json(),
+            resVaporeon.json(),
+            resJolteon.json(),
+            resFlareon.json(),
+            resPorygon.json(),
+            resOmanyte.json(),
+            resOmastar.json(),
+            resKabuto.json(),
+            resKabutops.json(),
+            resAerodactyl.json(),
+            resSnorlax.json(),
+            resArticuno.json(),
+            resZapdos.json(),
+            resMoltres.json(),
+            resDratini.json(),
+            resDragonair.json(),
+            resDragonite.json(),
+            resMewtwo.json(),
+            resMew.json(),
             resLocationBulbasaur.json()])
     )
     .then(([dataBulbasaur, 
@@ -554,7 +738,54 @@ export default function Index(this: any) {
         dataExeggutor,
         dataCubone,
         dataMarowak,
+        dataHitmonlee,
+        dataHitmonchan,
+        dataLickitung,
+        dataKoffing,
+        dataWeezing,
+        dataRhyhorn,
+        dataRhydon,
+        dataChansey,
+        dataTangela,
+        dataKangaskhan,
+        dataHorsea,
+        dataSeadra,
+        dataGoldeen,
+        dataSeaking,
+        dataStaryu,
+        dataStarmie,
+        dataMrmime,
+        dataScyther,
+        dataJynx,
+        dataElectabuzz,
+        dataMagmar,
+        dataPinsir,
+        dataTauros,
+        dataMagikarp,
+        dataGyarados,
+        dataLapras,
+        dataDitto,
+        dataEevee,
+        dataVaporeon,
+        dataJolteon,
+        dataFlareon,
+        dataPorygon,
+        dataOmanyte,
+        dataOmastar,
+        dataKabuto,
+        dataKabutops,
+        dataAerodactyl,
+        dataSnorlax,
+        dataArticuno,
+        dataZapdos,
+        dataMoltres,
+        dataDratini,
+        dataDragonair,
+        dataDragonite,
+        dataMewtwo,
+        dataMew,
         dataLocationBulbasaur]) => {
+            // setLoading(true);
         setBulbasaur(dataBulbasaur);
         setIvysaur(dataIvysaur);
         setVenusaur(dataVenusaur);
@@ -660,6 +891,52 @@ export default function Index(this: any) {
         setExeggutor(dataExeggutor);
         setCubone(dataCubone);
         setMarowak(dataMarowak);
+        setHitmonlee(dataHitmonlee);
+        setHitmonchan(dataHitmonchan);
+        setLickitung(dataLickitung);
+        setKoffing(dataKoffing);
+        setWeezing(dataWeezing);
+        setRhyhorn(dataRhyhorn);
+        setRhydon(dataRhydon);
+        setChansey(dataChansey);
+        setTangela(dataTangela);
+        setKangaskhan(dataKangaskhan);
+        setHorsea(dataHorsea);
+        setSeadra(dataSeadra);
+        setGoldeen(dataGoldeen);
+        setSeaking(dataSeaking);
+        setStaryu(dataStaryu);
+        setStarmie(dataStarmie);
+        setMrmime(dataMrmime);
+        setScyther(dataScyther);
+        setJynx(dataJynx);
+        setElectabuzz(dataElectabuzz);
+        setMagmar(dataMagmar);
+        setPinsir(dataPinsir);
+        setTauros(dataTauros);
+        setMagikarp(dataMagikarp);
+        setGyarados(dataGyarados);
+        setLapras(dataLapras);
+        setDitto(dataDitto);
+        setEevee(dataEevee);
+        setVaporeon(dataVaporeon);
+        setJolteon(dataJolteon);
+        setFlareon(dataFlareon);
+        setPorygon(dataPorygon);
+        setOmanyte(dataOmanyte);
+        setOmastar(dataOmastar);
+        setKabuto(dataKabuto);
+        setKabutops(dataKabutops);
+        setAerodactyl(dataAerodactyl);
+        setSnorlax(dataSnorlax);
+        setArticuno(dataArticuno);
+        setZapdos(dataZapdos);
+        setMoltres(dataMoltres);
+        setDratini(dataDratini);
+        setDragonair(dataDragonair);
+        setDragonite(dataDragonite);
+        setMewtwo(dataMewtwo);
+        setMew(dataMew);
         setLocationBulbasaur(dataLocationBulbasaur);
         setLoading(false);
     });
@@ -794,8 +1071,58 @@ export default function Index(this: any) {
         exeggcute,
         exeggutor,
         cubone,
-        marowak
+        marowak,
+        hitmonlee,
+        hitmonchan,
+        lickitung,
+        koffing,
+        weezing,
+        rhyhorn,
+        rhydon,
+        chansey,
+        tangela,
+        kangaskhan,
+        horsea,
+        seadra,
+        goldeen,
+        seaking,
+        staryu,
+        starmie,
+        mrmime,
+        scyther,
+        jynx,
+        electabuzz,
+        magmar,
+        pinsir,
+        tauros,
+        magikarp,
+        gyarados,
+        lapras,
+        ditto,
+        eevee,
+        vaporeon,
+        jolteon,
+        flareon,
+        porygon,
+        omanyte,
+        omastar,
+        kabuto,
+        kabutops,
+        aerodactyl,
+        snorlax,
+        articuno,
+        zapdos,
+        moltres,
+        dratini,
+        dragonair,
+        dragonite,
+        mewtwo,
+        mew
     ];
+
+    function imageLoadHandler(image: any,e: { target: { src: any; }; }) {
+        e.target.src = image;
+      }
 
 
 
@@ -839,8 +1166,145 @@ const renderItem = ({ item }: { item: any }) => {
 // }
 
     if (loading) return <Text>Loading...</Text>;
-
-    return (
+    
+//     if (bulbasaur &&        
+//         ivysaur &&
+//         venusaur &&
+//         charmander &&
+//         charmeleon &&
+//         charizard &&
+//         squirtle &&
+//         wartortle &&
+//         blastoise &&
+//         caterpie &&
+//         metapod &&
+//         butterfree &&
+//         weedle &&
+//         kakuna &&
+//         beedrill &&
+//         pidgey &&
+//         pidgeotto &&
+//         pidgeot &&
+//         rattata &&
+//         raticate &&
+//         spearow &&
+//         fearow &&
+//         ekans &&
+//         arbok &&
+//         pikachu &&
+//         raichu &&
+//         sandshrew &&
+//         sandslash &&
+//         nidoranf &&
+//         nidorina &&
+//         nidoqueen &&
+//         nidoranm &&
+//         nidorino &&
+//         nidoking &&
+//         clefairy &&
+//         clefable &&
+//         vulpix &&
+//         ninetales &&
+//         jigglypuff &&
+//         wigglytuff &&
+//         zubat &&
+//         golbat &&
+//         oddish &&
+//         gloom &&
+//         vileplume &&
+//         paras &&
+//         parasect &&
+//         venonat &&
+//         venomoth &&
+//         diglett &&
+//         dugtrio &&
+//         meowth &&
+//         persian &&
+//         psyduck &&
+//         golduck &&
+//         mankey &&
+//         primeape &&
+//         growlithe &&
+//         arcanine &&
+//         poliwag &&
+//         poliwhirl &&
+//         poliwrath &&
+//         abra &&
+//         kadabra &&
+//         alakazam &&
+//         machop &&
+//         machoke &&
+//         machamp &&
+//         bellsprout &&
+//         weepinbell &&
+//         victreebel &&
+//         tentacool &&
+//         tentacruel &&
+//         geodude &&
+//         graveler &&
+//         golem &&
+//         ponyta &&
+//         rapidash &&
+//         slowpoke &&
+//         slowbro &&
+//         magnemite &&
+//         magneton &&
+//         farfetchd &&
+//         doduo &&
+//         dodrio &&
+//         seel &&
+//         dewgong &&
+//         grimer &&
+//         muk &&
+//         shellder &&
+//         cloyster &&
+//         gastly &&
+//         haunter &&
+//         gengar &&
+//         onix &&
+//         drowzee &&
+//         hypno &&
+//         krabby &&
+//         kingler &&
+//         voltorb &&
+//         electrode &&
+//         exeggcute &&
+//         exeggutor &&
+//         cubone &&
+//         marowak &&
+//         hitmonlee &&
+//         hitmonchan &&
+//         lickitung &&
+//         koffing &&
+//         weezing &&
+//         rhyhorn &&
+//         rhydon &&
+//         chansey &&
+//         tangela &&
+//         kangaskhan &&
+//         horsea &&
+//         seadra &&
+//         goldeen &&
+//         seaking &&
+//         staryu &&
+//         starmie &&
+//         mrmime &&
+//         scyther &&
+//         jynx &&
+//         electabuzz &&
+//         magmar &&
+//         pinsir &&
+//         tauros &&
+//         magikarp &&
+//         gyarados &&
+//         lapras &&
+//         ditto &&
+//         eevee &&
+//         vaporeon &&
+//         jolteon &&
+//         flareon !== undefined
+// )
+return (
         // <>
         <SafeAreaView>
             <ScrollView>
@@ -856,7 +1320,7 @@ const renderItem = ({ item }: { item: any }) => {
                 <View style={styles.container}>
                     <Pressable style={styles.container} onPress={() => setExpanded(!expanded)}>
                         <View style={{flexDirection: 'column'}}>
-                        <Image source={{ uri: bulbasaur.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
+                        <Image source={{ uri: bulbasaur?.sprites?.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
                         <Text style={styles.text}>{bulbasaur.name}</Text>
                         </View>
                     </Pressable>
@@ -942,8 +1406,8 @@ const renderItem = ({ item }: { item: any }) => {
                                 <View>
                                     <Text>Locations found in the games:</Text>
                                     {locationBulbasaur.map((place: { location_area: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; version_details: any[]; }, l: React.Key | null | undefined) =>
-                                        <View style={{ flexDirection: 'row' }}>
-                                            <Text key={l}>{place.location_area.name}</Text>
+                                        <View key={l} style={{ flexDirection: 'row' }}>
+                                            <Text >{place.location_area.name}</Text>
                                             <Text>{place.version_details.map((version, v) =>
                                                 <Text key={v}> ({version.version.name})</Text>)}</Text>
                                         </View>)}
@@ -959,7 +1423,7 @@ const renderItem = ({ item }: { item: any }) => {
 
 
                 </View>
-                <View style={styles.container}>
+                {/* <View style={styles.container}>
                     <Image source={{ uri: ivysaur.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
                     <Text style={styles.text}>{ivysaur.name}</Text>
                 </View>
@@ -1055,10 +1519,7 @@ const renderItem = ({ item }: { item: any }) => {
                     <Image source={{ uri: pikachu.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
                     <Text style={styles.text}>{pikachu.name}</Text>
                 </View>
-                {/* <View style={styles.container}>
-                    <Image source={{ uri: pikachu.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{pikachu.name}</Text>
-                </View> */}
+
                 <View style={styles.container}>
                     <Image source={{ uri: raichu.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
                     <Text style={styles.text}>{raichu.name}</Text>
@@ -1102,7 +1563,7 @@ const renderItem = ({ item }: { item: any }) => {
                 <View style={styles.container}>
                     <Image source={{ uri: clefable.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
                     <Text style={styles.text}>{clefable.name}</Text>
-                </View>
+                </View> */}
                 {/* <Text>      {data.map((item, id) => (
           <View key={item.id}>
             <Text>{item.name}</Text>
@@ -1111,7 +1572,7 @@ const renderItem = ({ item }: { item: any }) => {
           {data.map((item: any, index: any) => {
         return (
             <View key={index} style={{height: 50, width: 50, backgroundColor: 'orange', marginBottom: 10}}>
-                <Image  source={{ uri: item.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
+                <Image  source={{ uri: item?.sprites?.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
             <Text>{item.name}</Text>
             </View> 
         )
