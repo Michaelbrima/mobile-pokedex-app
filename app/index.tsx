@@ -2,15 +2,12 @@ import React,{ useEffect, useState } from 'react';
 import { Text, View , StyleSheet, FlatList, ListRenderItem, Platform, Image, ScrollView, Pressable } from 'react-native'; /*'Stylesheet' is a property that allows you to use CSS properties in React Native. */ 
 import axios from 'axios';
 import { SafeAreaView } from 'react-native-safe-area-context';
-// import 'react-native-gesture-handler/jestSetup';
-// const pokemonEntry = ({ pokemon }) => (
-//     <View>
-//         <Text>{pokemon.name}</Text>
-//     </View>
-// )
+import { SelectList } from 'react-native-dropdown-select-list';
+
 
 export default function Index(this: any) {
     // const [record, setRecord] = useState<any>({});
+    const [extraSection, setExtraSection] = useState<any>(null);
     const [bulbasaur, setBulbasaur] = useState<any>({});
     const [ivysaur, setIvysaur] = useState<any>({});
     const [venusaur, setVenusaur] = useState<any>({});
@@ -321,6 +318,7 @@ export default function Index(this: any) {
 
     const [loading, setLoading] = useState(true);
     const [expanded, setExpanded] = useState(false);
+    const [selected, setSelected] = useState<any>({});
     
 
 
@@ -1864,17 +1862,7 @@ export default function Index(this: any) {
                 }
             }
         ])
-    //     .then(([
-    //         resAreaBulbasaur
-    //     ]) =>
-    //     Promise.all([
-    //         resAreaBulbasaur.json()])
-    // )
-    // .then(([
-    //     dataAreaBulbasaur]) => {
-    //     setLocationBulbasaur(dataAreaBulbasaur);
-    //     setLoading(false);
-    // });
+
     }, []);  
 
     const arrayAreas = areaBulbasaur.map((area: { id: React.Key | null | undefined; location_area: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, id: any) => 
@@ -2237,157 +2225,19 @@ const renderItem = ({ item }: { item: any }) => {
 //   }}
 // }
 
+
+            const addRow = () => {
+                setExtraSection(<Text>{bulbasaur.name}</Text>);
+            }; 
+
     if (loading) return <Text>Loading...</Text>;
     
-//     if (bulbasaur &&        
-//         ivysaur &&
-//         venusaur &&
-//         charmander &&
-//         charmeleon &&
-//         charizard &&
-//         squirtle &&
-//         wartortle &&
-//         blastoise &&
-//         caterpie &&
-//         metapod &&
-//         butterfree &&
-//         weedle &&
-//         kakuna &&
-//         beedrill &&
-//         pidgey &&
-//         pidgeotto &&
-//         pidgeot &&
-//         rattata &&
-//         raticate &&
-//         spearow &&
-//         fearow &&
-//         ekans &&
-//         arbok &&
-//         pikachu &&
-//         raichu &&
-//         sandshrew &&
-//         sandslash &&
-//         nidoranf &&
-//         nidorina &&
-//         nidoqueen &&
-//         nidoranm &&
-//         nidorino &&
-//         nidoking &&
-//         clefairy &&
-//         clefable &&
-//         vulpix &&
-//         ninetales &&
-//         jigglypuff &&
-//         wigglytuff &&
-//         zubat &&
-//         golbat &&
-//         oddish &&
-//         gloom &&
-//         vileplume &&
-//         paras &&
-//         parasect &&
-//         venonat &&
-//         venomoth &&
-//         diglett &&
-//         dugtrio &&
-//         meowth &&
-//         persian &&
-//         psyduck &&
-//         golduck &&
-//         mankey &&
-//         primeape &&
-//         growlithe &&
-//         arcanine &&
-//         poliwag &&
-//         poliwhirl &&
-//         poliwrath &&
-//         abra &&
-//         kadabra &&
-//         alakazam &&
-//         machop &&
-//         machoke &&
-//         machamp &&
-//         bellsprout &&
-//         weepinbell &&
-//         victreebel &&
-//         tentacool &&
-//         tentacruel &&
-//         geodude &&
-//         graveler &&
-//         golem &&
-//         ponyta &&
-//         rapidash &&
-//         slowpoke &&
-//         slowbro &&
-//         magnemite &&
-//         magneton &&
-//         farfetchd &&
-//         doduo &&
-//         dodrio &&
-//         seel &&
-//         dewgong &&
-//         grimer &&
-//         muk &&
-//         shellder &&
-//         cloyster &&
-//         gastly &&
-//         haunter &&
-//         gengar &&
-//         onix &&
-//         drowzee &&
-//         hypno &&
-//         krabby &&
-//         kingler &&
-//         voltorb &&
-//         electrode &&
-//         exeggcute &&
-//         exeggutor &&
-//         cubone &&
-//         marowak &&
-//         hitmonlee &&
-//         hitmonchan &&
-//         lickitung &&
-//         koffing &&
-//         weezing &&
-//         rhyhorn &&
-//         rhydon &&
-//         chansey &&
-//         tangela &&
-//         kangaskhan &&
-//         horsea &&
-//         seadra &&
-//         goldeen &&
-//         seaking &&
-//         staryu &&
-//         starmie &&
-//         mrmime &&
-//         scyther &&
-//         jynx &&
-//         electabuzz &&
-//         magmar &&
-//         pinsir &&
-//         tauros &&
-//         magikarp &&
-//         gyarados &&
-//         lapras &&
-//         ditto &&
-//         eevee &&
-//         vaporeon &&
-//         jolteon &&
-//         flareon !== undefined
-// )
+
 return (
         // <>
-        <SafeAreaView>
+        <SafeAreaView style={{backgroundColor: 'gray'}}>
             <ScrollView>
-                {/* <View>
-                        <View>
-                            {bulbasaur.moves.map((item: { id: React.Key | null | undefined; move: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, i: any) => //used typescript to help infer parameter types from usage for both props
-                                <View key={i}>
-                                    {<Text >{item.move.name}</Text>}
-                                </View>)}
-                        </View>
-                    </View> */}
+
 
                 <View style={styles.container}>
                     <Pressable style={styles.container} onPress={() => setExpanded(!expanded)}>
@@ -2533,7 +2383,7 @@ return (
 
                                 <View style={{ flexDirection: 'column', backgroundColor: 'red' }}>
                                     <Text style={{ color: 'white' }}>Types:</Text>
-                                    <View>{bulbasaur.types.map((type: { type: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, t: React.Key | null | undefined) =>
+                                    <View>{ivysaur.types.map((type: { type: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, t: React.Key | null | undefined) =>
                                     <Text key={t} style={{ color: 'white' }}>{type.type.name}</Text>
                                 )}</View>
 
@@ -2542,28 +2392,28 @@ return (
 
                                 <View style={{flexDirection: 'row'}}>
                                 <Text style={{ color: 'white' }}>Type: </Text>
-                                <Text style={{ color: 'white' }}>{bulbasaur.types[0].type.name}</Text>
+                                <Text style={{ color: 'white' }}>{ivysaur.types[0].type.name}</Text>
                                 </View>
 
                                 <View style={{flexDirection: 'row'}}>
                                 <Text style={{ color: 'white' }}>Ability: </Text>
-                                <Text style={{ color: 'white' }}>{bulbasaur.abilities[0].ability.name}</Text>
+                                <Text style={{ color: 'white' }}>{ivysaur.abilities[0].ability.name}</Text>
                                 </View>
 
                                 <View style={{flexDirection: 'row'}}>
                                 <Text style={{ color: 'white' }}>Weight: </Text>
-                                <Text style={{ color: 'white' }}>{bulbasaur.weight}</Text>
+                                <Text style={{ color: 'white' }}>{ivysaur.weight}</Text>
                                 </View>
 
                                 <View style={{flexDirection: 'row'}}>
                                 <Text style={{ color: 'white' }}>Base Experience: </Text>
-                                <Text style={{ color: 'white' }}>{bulbasaur.base_experience}</Text>
+                                <Text style={{ color: 'white' }}>{ivysaur.base_experience}</Text>
                                 </View>
 
                                 </View>
 
                         <Text style={{ color: 'white' }}>Move Information:</Text>
-                        <Text style={{ flexDirection: 'column' }}>{bulbasaur.moves.map((item: {
+                        <Text style={{ flexDirection: 'column' }}>{ivysaur.moves.map((item: {
                             [x: string]: any; version_group_details: { level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }[]; }, id: any) =>
                             <View key={id} style={{ flexDirection: 'column' }}><Text style={styles.text}>{item.move.name}</Text>{item.version_group_details.map((attr: {
                                 [x: string]: any; level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined;
@@ -2616,171 +2466,76 @@ return (
 
 
                 </View>
-                {/* <View style={styles.container}>
-                    <Image source={{ uri: ivysaur.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{ivysaur.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: venusaur.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{venusaur.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: charmander.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{charmander.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: charmeleon.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{charmeleon.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: charizard.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{charizard.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: squirtle.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{squirtle.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: wartortle.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{wartortle.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: blastoise.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{blastoise.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: caterpie.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{caterpie.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: metapod.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{metapod.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: butterfree.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{butterfree.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: weedle.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{weedle.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: kakuna.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{kakuna.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: beedrill.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{beedrill.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: pidgey.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{pidgey.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: pidgeotto.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{pidgeotto.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: pidgeot.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{pidgeot.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: rattata.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{rattata.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: raticate.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{raticate.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: spearow.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{spearow.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: fearow.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{fearow.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: ekans.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{ekans.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: arbok.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{arbok.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: pikachu.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{pikachu.name}</Text>
-                </View>
 
-                <View style={styles.container}>
-                    <Image source={{ uri: raichu.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{raichu.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: sandshrew.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{sandshrew.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: sandslash.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{sandslash.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: nidoranf.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{nidoranf.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: nidorina.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{nidorina.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: nidoqueen.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{nidoqueen.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: nidoranm.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{nidoranm.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: nidorino.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{nidorino.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: nidoking.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{nidoking.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: clefairy.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{clefairy.name}</Text>
-                </View>
-                <View style={styles.container}>
-                    <Image source={{ uri: clefable.sprites.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                    <Text style={styles.text}>{clefable.name}</Text>
-                </View> */}
                 {/* <Text>      {data.map((item, id) => (
           <View key={item.id}>
             <Text>{item.name}</Text>
             </View>
         ))}</Text> */}
+
+
+
             {data.map((item: any, index: any) => {
+            
+            var placeHolder = null;
+            const addRow = () => {
+                setExtraSection(<Text>{item.name}</Text>);
+            }; 
+
+            var renderData = [
+                <View>{item.types.map((type: { type: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, t: React.Key | null | undefined) =>
+                    <View key={t} style={{ flexDirection: 'row' }}>
+                    <Text style={{ color: 'white' }}>Type: </Text>
+                    <Text key={t} style={{ color: 'white' }}>{type.type.name}</Text>
+                    </View>
+                )}
+                </View>,
+                <View>{item.abilities.map((ability: { ability: { name: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; }; }, a: React.Key | null | undefined)=>
+                    <View key={a} style={{ flexDirection: 'row' }}>
+                        <Text style={{ color: 'white' }}>Abilities: </Text>
+                        <Text key={a} style={{ color: 'white' }}>{ability.ability.name}</Text>
+                    </View>
+                )}</View>,
+                <View style={{ flexDirection: 'row' }}>
+                <Text style={{ color: 'white' }}>Weight: </Text>
+                <Text style={{ color: 'white' }}>{item.weight}</Text>
+                </View>,
+                <View style={{ flexDirection: 'row' }}>
+                <Text style={{ color: 'white' }}>Base Experience: </Text>
+                <Text style={{ color: 'white' }}>{item.base_experience}</Text>
+                </View>
+            ];
+
+            
 
                 return (
-                    <View key={index} style={{ backgroundColor: 'orange', marginBottom: 10 }}>
+                    <View key={index}>
+                        <Pressable style={styles.container} onPress={() => addRow()}>
                         <Image source={{ uri: item?.sprites?.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
-                        <Text>{item.name}</Text>
-
+                        <Text style={{ color: 'white', textTransform: 'uppercase' }}>{item.name}</Text>
+                       <SelectList setSelected={(val: any)=>setSelected(val)} data={renderData}/>
+                        </Pressable>
+                    {item && expanded ? <>
                     <View style={{backgroundColor: 'red'}}>
                     <Text style={{ color: 'white' }}>Basic Information:</Text>
                         <View>{item.types.map((type: { type: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, t: React.Key | null | undefined) =>
                             <View key={t} style={{ flexDirection: 'row' }}>
-                            <Text style={{ color: 'white' }}>Type:</Text>
+                            <Text style={{ color: 'white' }}>Type: </Text>
                             <Text key={t} style={{ color: 'white' }}>{type.type.name}</Text>
                             </View>
                         )}
                         </View>
+                        <View>{item.abilities.map((ability: { name: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; }, a: React.Key | null | undefined)=>{
+                            <View key={a} style={{ flexDirection: 'row' }}>
+                                <Text style={{ color: 'white' }}>Abilities: </Text>
+                                <Text key={a} style={{ color: 'white' }}>{ability.name}</Text>
+                            </View>
+                        })}</View>
                         <View style={{ flexDirection: 'row' }}>
                             <Text style={{ color: 'white' }}>Weight: </Text>
                             <Text style={{ color: 'white' }}>{item.weight}</Text>
+                            <Text style={{ color: 'white' }}> hg</Text>
+                            
                         </View>
 
                         <View style={{ flexDirection: 'row' }}>
@@ -2818,6 +2573,8 @@ return (
                                         </Text>)}</Text>
                                 </View>)}
                         </View>
+
+            </> : null }
 
                     </View>
                     
@@ -2860,11 +2617,12 @@ const styles = StyleSheet.create({
             // justifyContent: "center",
             // alignItems: "center",
             backgroundColor: "#25292e",
-            flexDirection: "row",
+            flexDirection: "column",
             borderColor: "red",
             borderWidth: 1,
             margin: 5,
-            padding: 5
+            padding: 5,
+            borderRadius: 5
     },
     text: {
         color: "white",
