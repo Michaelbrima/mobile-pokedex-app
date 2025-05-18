@@ -2236,6 +2236,7 @@ const renderItem = ({ item }: { item: any }) => {
 return (
         // <>
         <SafeAreaView style={{backgroundColor: 'gray'}}>
+            <Text style={{fontSize: 14, color: 'white', flex: 1, alignItems: 'center', justifyContent: 'center'}}>Mobile Pokedex App</Text>
             <ScrollView>
 
 
@@ -2481,7 +2482,35 @@ return (
             const addRow = () => {
                 setExtraSection(<Text>{item.name}</Text>);
             }; 
-
+            var moveData = [
+                <Text style={{ flexDirection: 'column' }}>{item.moves.map((item: {
+                    [x: string]: any; version_group_details: { level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }[];
+                }, id: any) =>
+                    <View key={id} style={{ flexDirection: 'column' }}><Text style={{color: 'yellow'}}>{item.move.name}</Text>{item.version_group_details.map((attr: {
+                        [x: string]: any; level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined;
+                    }, index: React.Key | null | undefined) => (
+                        <View style={{ flexDirection: 'row' }} key={index}>
+                            <Text style={styles.text}>{attr.level_learned_at}</Text>
+                            <Text style={styles.text}> ({attr.move_learn_method.name}) </Text>
+                            <Text style={styles.text}> ({attr.version_group.name}) </Text>
+                        </View>
+                    ))}
+                    </View>)}
+                </Text>
+            ];            
+            
+            var locationCollectionData = [
+                <View>
+                <Text style={{color: 'white'}}>Locations found in the games:</Text>
+                {locationData[index].map((place: { location_area: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; version_details: any[]; }, l: React.Key | null | undefined) =>
+                    <View key={l} style={{ flexDirection: 'row' }}>
+                        <Text style={{color: 'white'}}>{place.location_area.name}</Text>
+                        <Text style={{color: 'white'}}>{place.version_details.map((version, v) =>
+                            <Text key={v}> ({version.version.name})</Text>)}</Text>
+                    </View>)}
+            </View>
+            ];
+            
             var renderData = [
                 <View>{item.types.map((type: { type: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; }, t: React.Key | null | undefined) =>
                     <View key={t} style={{ flexDirection: 'row' }}>
@@ -2497,23 +2526,37 @@ return (
                     </View>
                 )}</View>,
                 <View style={{ flexDirection: 'row' }}>
+                <Text style={{ color: 'white' }}>Height: </Text>
+                <Text style={{ color: 'white' }}>{item.height}</Text>
+                <Text style={{ color: 'white' }}> dm</Text>
+                </View>,
+                <View style={{ flexDirection: 'row' }}>
                 <Text style={{ color: 'white' }}>Weight: </Text>
                 <Text style={{ color: 'white' }}>{item.weight}</Text>
+                <Text style={{ color: 'white' }}> hg</Text>
                 </View>,
                 <View style={{ flexDirection: 'row' }}>
                 <Text style={{ color: 'white' }}>Base Experience: </Text>
                 <Text style={{ color: 'white' }}>{item.base_experience}</Text>
-                </View>
+                </View>,
+                <SelectList setSelected={(val: any)=>setSelected(val)} inputStyles={{color: 'white'}} search={false} placeholder={'Click right arrow for move info'} data={moveData}/>,
+                <SelectList setSelected={(val: any)=>setSelected(val)}  inputStyles={{color: 'white'}} search={false} placeholder={'Click right arrow for location info'} data={locationCollectionData}/>
             ];
+
+
+
+
 
             
 
                 return (
                     <View key={index}>
                         <Pressable style={styles.container} onPress={() => addRow()}>
-                        <Image source={{ uri: item?.sprites?.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
+                        <View style={styles.imageBackground}>
+                        <Image source={{ uri: item?.sprites?.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2}} />
+                        </View>
                         <Text style={{ color: 'white', textTransform: 'uppercase' }}>{item.name}</Text>
-                       <SelectList setSelected={(val: any)=>setSelected(val)} data={renderData}/>
+                       <SelectList setSelected={(val: any)=>setSelected(val)} inputStyles={{color: 'white'}} search={false} placeholder={'Click Arrow on the right for info'} data={renderData}/>
                         </Pressable>
                     {item && expanded ? <>
                     <View style={{backgroundColor: 'red'}}>
@@ -2545,23 +2588,7 @@ return (
 
                     </View>
 
-                    {/* <View style={{backgroundColor: 'blue'}}>
-                    <Text style={{ color: 'white' }}>Move Information:</Text>
-                            <Text style={{ flexDirection: 'column' }}>{item.moves.map((item: {
-                                [x: string]: any; version_group_details: { level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }[];
-                            }, id: any) =>
-                                <View key={id} style={{ flexDirection: 'column' }}><Text style={styles.text}>{item.move.name}</Text>{item.version_group_details.map((attr: {
-                                    [x: string]: any; level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined;
-                                }, index: React.Key | null | undefined) => (
-                                    <View style={{ flexDirection: 'row' }} key={index}>
-                                        <Text style={styles.text}>{attr.level_learned_at}</Text>
-                                        <Text style={styles.text}> ({attr.move_learn_method.name}) </Text>
-                                        <Text style={styles.text}> ({attr.version_group.name}) </Text>
-                                    </View>
-                                ))}
-                                </View>)}
-                            </Text>
-                    </View>         */}
+
 
                         <View style={{backgroundColor: 'green'}}>
                             <Text style={{ color: 'white' }}>Locations found in the games:</Text>
@@ -2583,21 +2610,10 @@ return (
             }
             )
             }
-                        {locationData.map((location: any, entry: any) => {
-
-return (
-    <View key={entry} style={{ height: 100, width: 100, backgroundColor: 'orange', marginBottom: 10 }}>
-        {/* <Image source={{ uri: item?.sprites?.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} /> */}
-        <Text style={{color: 'black'}}>{location?.location_area?.name}</Text>
-
-    </View>
-)
-}
-)
-}                     
-                <View>
+                     
+                <View style={{margin: 10}}>
                     <Text>No Copyright Infringement is Intended. Pokemon belongs to
-                        Gamefreak, Nintendo, and The Pokemon Company, respectively. Pokémon and Pokémon character names are trademarks of Nintendo.&copy</Text>
+                        Gamefreak, Nintendo, and The Pokemon Company, respectively. Pokemon are registered trademarks of Nintendo and Gamefreak. Pokémon and Pokémon character names are trademarks of Nintendo.&copy</Text>
                 </View>
             </ScrollView>
 
@@ -2641,5 +2657,13 @@ const styles = StyleSheet.create({
     textWrapper: {
         flex: 1,
         
+        },
+        imageBackground: {
+            backgroundColor: 'gray',
+            height: 50,
+            width: 50,
+            borderRadius: 2,
+            borderColor: 'green',
+            borderWidth: 1
         }
 });
