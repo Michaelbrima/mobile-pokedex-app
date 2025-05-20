@@ -1,8 +1,14 @@
-import React,{ useEffect, useState } from 'react';
-import { Text, View , StyleSheet, FlatList, ListRenderItem, Platform, Image, ScrollView, Pressable } from 'react-native'; /*'Stylesheet' is a property that allows you to use CSS properties in React Native. */ 
+import React,{ useEffect, useRef, useState } from 'react';
+import { Text, View , StyleSheet, FlatList, ListRenderItem, Platform, Image, ScrollView, Pressable, Button, TouchableOpacity } from 'react-native'; /*'Stylesheet' is a property that allows you to use CSS properties in React Native. */ 
 import axios from 'axios';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { SelectList } from 'react-native-dropdown-select-list';
+import AutoLink, { Autolink } from 'react-native-autolink';
+import VideoPlayer, { type VideoPlayerRef } from 'react-native-video-player';
+import { WebView } from "react-native-webview";
+import SoundPlayer from 'react-native-sound-player';
+import Sound from 'react-native-sound';
+
 
 
 export default function Index(this: any) {
@@ -319,6 +325,7 @@ export default function Index(this: any) {
     const [loading, setLoading] = useState(true);
     const [expanded, setExpanded] = useState(false);
     const [selected, setSelected] = useState<any>({});
+    const playerRef = useRef<VideoPlayerRef>(null);
     
 
 
@@ -2180,6 +2187,18 @@ export default function Index(this: any) {
         locationMew
     ];
 
+    // useEffect((index) => {
+    //     let pendingSound;
+    //     if (open()) {
+    //     pendingSound = new Sound(`https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${index + 1}.ogg`, Sound.MAIN_BUNDLE, e => {
+    //     if (e) {
+    //     console.log('Failed to load sound file', e);
+    //     return;
+    //     }
+    //     });
+    //     }}
+    // )
+
     function imageLoadHandler(image: any,e: { target: { src: any; }; }) {
         e.target.src = image;
       }
@@ -2226,9 +2245,24 @@ const renderItem = ({ item }: { item: any }) => {
 // }
 
 
+
             const addRow = () => {
                 setExtraSection(<Text>{bulbasaur.name}</Text>);
             }; 
+// const cry = new Sound(bulbasaur?.cries?.legacy, (error) => {
+// if (error){
+//     return error;
+// } else {
+//     cry.play();
+// }
+// });
+
+// const cryLink = <Autolink text={bulbasaur.cries.legacy} />
+
+
+
+
+
 
     if (loading) return <Text>Loading...</Text>;
     
@@ -2236,19 +2270,22 @@ const renderItem = ({ item }: { item: any }) => {
 return (
         // <>
         <SafeAreaView style={{backgroundColor: 'gray'}}>
-            <Text style={{fontSize: 14, color: 'white', flex: 1, alignItems: 'center', justifyContent: 'center'}}>Mobile Pokedex App</Text>
+            <Text style={{fontSize: 20, color: 'white',  justifyContent: 'center', alignItems: 'center', position: 'absolute', alignSelf: 'center'}}>Mobile Pokedex App</Text>
             <ScrollView>
 
 
-                <View style={styles.container}>
+                {/* <View style={styles.container}>
                     <Pressable style={styles.container} onPress={() => setExpanded(!expanded)}>
                         <View style={{flexDirection: 'column'}}>
                         <Image source={{ uri: bulbasaur?.sprites?.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
                         <Text style={styles.text}>{bulbasaur.name}</Text>
-                        </View>
-                    </Pressable>
+                        
+                        {/* <Text>{bulbasaur.cries.legacy}</Text> */}
+                        {/* <Autolink text={bulbasaur.cries.legacy} /> */}
+                        {/* </View>
+                    </Pressable> */}
 
-                    {bulbasaur && expanded &&
+                    {/* {bulbasaur && expanded &&
                     <View style={{flexDirection: 'column'}}>
 
                     <View style={{ flexDirection: 'column'}}> 
@@ -2313,7 +2350,7 @@ return (
 
                             <View style={{ flexDirection: 'column', backgroundColor: "yellow" }}>
                                 <View style={{ flexDirection: 'row' }}>
-                                </View>
+                                </View> */}
 
                                 {/* <View>
                                     <Text>Locations found in the games:</Text>
@@ -2325,12 +2362,12 @@ return (
                                         </View>)}
                                 </View> */}
 
-                                <View>
+                                {/* <View> */}
                                     {/* {const fetch = async () => {
                                         
                                     }} */}
                                     {/* <Text>{placeBulbasaur?.location_area?.name}</Text> */}
-                                    {placeBulbasaur.map((place: { location_area: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; version_details: any[]; }, l: React.Key | null | undefined) =>
+                                    {/* {placeBulbasaur.map((place: { location_area: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; version_details: any[]; }, l: React.Key | null | undefined) =>
                                         <View key={l} style={{ flexDirection: 'row' }}>
                                             <Text >{place.location_area.name}</Text>
                                             <Text>{place.version_details.map((version, v) =>
@@ -2341,20 +2378,20 @@ return (
                             </View>
 
                             </View>
-                    }
+                    } */}
                     
 
 
 
 
-                </View>
-                <View style={styles.container}>
+                {/* </View> */}
+                {/* <View style={styles.container}>
                     <Pressable style={styles.container} onPress={() => setExpanded(!expanded)}>
                         <View style={{flexDirection: 'column'}}>
                         <Image source={{ uri: ivysaur?.sprites?.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2, }} />
                         <Text style={styles.text}>{ivysaur.name}</Text>
                         </View>
-                    </Pressable>
+                    </Pressable> */}
                     {/* {expanded && <View style={styles.textWrapper}>
                         <View style={{ flexDirection: 'row'}}>
                             <View>
@@ -2369,8 +2406,8 @@ return (
                     </View>} */}
 
                     {/* {expanded && <Text> </Text>} */}
-                    {ivysaur && expanded &&
-                    <View style={{flexDirection: 'column'}}>
+                    {/* {ivysaur && expanded &&
+                    <View style={{flexDirection: 'column'}}> */}
                     {/* <View>
                     <Text style={styles.text}>{bulbasaur.types[0].type.name}</Text>
                     </View>
@@ -2380,7 +2417,7 @@ return (
 
 
 
-                    <View style={{ flexDirection: 'column'}}> 
+                    {/* <View style={{ flexDirection: 'column'}}> 
 
                                 <View style={{ flexDirection: 'column', backgroundColor: 'red' }}>
                                     <Text style={{ color: 'white' }}>Types:</Text>
@@ -2411,30 +2448,30 @@ return (
                                 <Text style={{ color: 'white' }}>{ivysaur.base_experience}</Text>
                                 </View>
 
-                                </View>
+                                </View> */}
 
-                        <Text style={{ color: 'white' }}>Move Information:</Text>
+                        {/* <Text style={{ color: 'white' }}>Move Information:</Text>
                         <Text style={{ flexDirection: 'column' }}>{ivysaur.moves.map((item: {
                             [x: string]: any; version_group_details: { level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }[]; }, id: any) =>
                             <View key={id} style={{ flexDirection: 'column' }}><Text style={styles.text}>{item.move.name}</Text>{item.version_group_details.map((attr: {
                                 [x: string]: any; level_learned_at: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined;
                             }, index: React.Key | null | undefined) => (
-                                <View style={{ flexDirection: 'row' }} key={index}>
+                                <View style={{ flexDirection: 'row' }} key={index}> */}
                                     {/* <Text style={styles.text}>Level: </Text> */}
-                                    <Text style={styles.text}>{attr.level_learned_at}</Text>
+                                    {/* <Text style={styles.text}>{attr.level_learned_at}</Text>
                                     <Text style={styles.text}> ({attr.move_learn_method.name}) </Text>
-                                    <Text style={styles.text}> ({attr.version_group.name}) </Text>
-                                </View>
-                            ))}</View>)}</Text>
-                            </View>
+                                    <Text style={styles.text}> ({attr.version_group.name}) </Text> */}
+                                {/* </View> */}
+                            {/* ))}</View>)}</Text> */}
+                            {/* </View> */}
 
-                            <View style={{ flexDirection: 'column', backgroundColor: "yellow" }}>
-                                <View style={{ flexDirection: 'row' }}>
+                            {/* <View style={{ flexDirection: 'column', backgroundColor: "yellow" }}> */}
+                                {/* <View style={{ flexDirection: 'row' }}> */}
                                 {/* <Text style={{ margin: 10, color: 'gray' }}>Location:</Text>
                                 <Text style={{ margin: 10, color: 'gray' }}>Version:</Text> */}
-                                </View>
+                                {/* </View> */}
                             {/* <View>{arrayAreas}</View> */}
-                                <View>
+                                {/* <View>
                                     <Text>Locations found in the games:</Text>
                                     {locationIvysaur.map((place: { location_area: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; version_details: any[]; }, l: React.Key | null | undefined) =>
                                         <View key={l} style={{ flexDirection: 'row' }}>
@@ -2442,42 +2479,56 @@ return (
                                             <Text>{place.version_details.map((version, v) =>
                                                 <Text key={v}> ({version.version.name})</Text>)}</Text>
                                         </View>)}
-                                </View>
+                                </View> */}
 
-                                <View>
+                                {/* <View> */}
                                     {/* {const fetch = async () => {
                                         
                                     }} */}
                                     {/* <Text>{placeBulbasaur?.location_area?.name}</Text> */}
-                                    {placeBulbasaur.map((place: { location_area: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; version_details: any[]; }, l: React.Key | null | undefined) =>
+                                    {/* {placeBulbasaur.map((place: { location_area: { name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; version_details: any[]; }, l: React.Key | null | undefined) =>
                                         <View key={l} style={{ flexDirection: 'row' }}>
                                             <Text >{place.location_area.name}</Text>
                                             <Text>{place.version_details.map((version, v) =>
                                                 <Text key={v}> ({version.version.name})</Text>)}</Text>
-                                        </View>)}
-                                </View>
+                                        </View>)} */}
+                                {/* </View> */}
                             
-                            </View>
+                            {/* </View> */}
 
-                            </View>
-                    }
+                            {/* </View> */}
+                    {/* } */}
                     
 
 
 
 
-                </View>
+                {/* </View> */}
 
                 {/* <Text>      {data.map((item, id) => (
           <View key={item.id}>
             <Text>{item.name}</Text>
             </View>
-        ))}</Text> */}
+        ))}</Text> */} 
 
 
 
             {data.map((item: any, index: any) => {
-            
+            // var cry = require(`https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${index + 1}.ogg`);
+            // var cryPlayer = useAudioPlayer(cry);
+            // const playerRef = useRef<VideoPlayerRef>(null);
+//             const cryPlayer = () => {
+//     try{
+//         SoundPlayer.playUrl(`https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${index + 1}.ogg`);
+//     } catch (e) {
+//  return e;
+//     }
+// }
+// var cry = new Sound(`https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${index + 1}.ogg`, Sound.MAIN_BUNDLE, (error) => {
+//     if (error){
+//         return error
+//     }
+// });
             var placeHolder = null;
             const addRow = () => {
                 setExtraSection(<Text>{item.name}</Text>);
@@ -2545,10 +2596,6 @@ return (
 
 
 
-
-
-            
-
                 return (
                     <View key={index}>
                         <Pressable style={styles.container} onPress={() => addRow()}>
@@ -2556,6 +2603,7 @@ return (
                         <Image source={{ uri: item?.sprites?.front_default }} style={{ width: 50, height: 50, borderRadius: 100 / 2}} />
                         </View>
                         <Text style={{ color: 'white', textTransform: 'uppercase' }}>{item.name}</Text>
+                        {/* <Button title={'Play cry'} onPress={() => cry.play()} />   */}
                        <SelectList setSelected={(val: any)=>setSelected(val)} inputStyles={{color: 'white'}} search={false} placeholder={'Click Arrow on the right for info'} data={renderData}/>
                         </Pressable>
                     {item && expanded ? <>
